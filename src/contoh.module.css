@@ -1,0 +1,16 @@
+.btn {
+  padding: 1em;
+  border: 1px solid rgba(0, 0, 0, 0, 8);
+  border-radius: 2px;
+  background: none !important;
+}
+
+.btnSm {
+  font-size: 1em;
+  padding: 1em;
+}
+
+.btnSuccess {
+  background-color: green;
+  color: white;
+}

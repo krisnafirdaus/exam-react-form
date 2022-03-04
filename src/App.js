@@ -1,16 +1,34 @@
-import logo from "./logo.svg";
-// import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, useRoutes } from "react-router-dom";
+import NewPlayer from "./Component/NewPlayer";
+import Navbar from "./Component/Navbar";
 
-function App() {
+const Component1 = () => {
+  return <h1>Component 1</h1>;
+};
+
+const Component2 = () => {
+  return <h1>Component 2</h1>;
+};
+
+const App = () => {
+  let routes = useRoutes([
+    { path: "/", element: <Component1 /> },
+    { path: "component2", element: <Component2 /> },
+    { path: "newplayer", element: <NewPlayer /> },
+    { path: "newplayer/:id", element: <NewPlayer /> },
+    // ...
+  ]);
+  return routes;
+};
+
+const AppWrapper = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="d-flex justify-content-center aligns-items-center">
-          <h1 className="text-danger">Hai</h1>
-        </div>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <App />
+    </Router>
   );
-}
+};
 
-export default App;
+export default AppWrapper;

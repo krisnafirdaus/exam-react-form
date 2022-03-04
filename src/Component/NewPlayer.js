@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function NewPlayer() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const posts = [
+    {
+      id: "1",
+      title: "rem",
+      body: "adalah aku",
+    },
+  ];
+  const id = posts[posts.length - 1].id + 1;
+
+  const post = {
+    id,
+    email,
+    password,
+  };
+
+  const submit = (e) => {
+    posts.push(post);
+  };
+
+  console.log(posts);
+
   return (
     <div>
       <div class="container">
         <div class="row">
           <div class="col-sm">
-            <form>
+            <form onClick={submit()}>
               <div className="form-group mt-3">
                 <label htmlFor="exampleInputEmail1">Email address</label>
                 <input
@@ -15,6 +38,8 @@ export default function NewPlayer() {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <small id="emailHelp" className="form-text text-muted">
                   We'll never share your email with anyone else.
@@ -27,6 +52,8 @@ export default function NewPlayer() {
                   className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
